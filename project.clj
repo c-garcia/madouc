@@ -7,7 +7,9 @@
                  [ring/ring-core "1.5.1"]
                  [com.taoensso/timbre "4.8.0"]
                  [com.fzakaria/slf4j-timbre "0.3.4"]
+                 [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]]
   :main madouc.core
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:dev {:plugins [[lein-environ "1.1.0"]]}
+             :uberjar {:aot :all}})
