@@ -1,0 +1,15 @@
+#+title:
+#+author: Cristobal Garcia & Pau Cervera
+
+* Intro
+
+#+begin_quote
+Functional programming is like describing your problem to a 
+mathematician. Imperative programming is like giving instructions to an idiot.
+#+end_quote
+
+* What FP is
+
+* Why FP matters
+
+  - Multi core
