@@ -1,7 +1,12 @@
 # madouc
 
 A sample web based application built to show coders 
-the potential of the functional paradigm in the real world. 
+the potential of the functional paradigm in _the real world_.
+
+## Madouc
+
+Madouc is one of the characters appearing in the Lyonesse trilogy 
+by Jack Vance, one of my favourite writers.
 
 ## License
 
