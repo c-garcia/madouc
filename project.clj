@@ -15,5 +15,7 @@
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]]
   :main madouc.core
-  :profiles {:dev {:plugins [[lein-environ "1.1.0"]]}
+  :profiles {:dev {:dependencies [[ring/ring-devel "1.5.1"]]
+                   :plugins [[lein-environ "1.1.0"]]
+                   :env {:madouc-env "dev"}}
              :uberjar {:aot :all}})
