@@ -1,13 +1,10 @@
 (ns madouc.handlers
-  (:require [ring.logger.timbre :as logger]))
+  (:require [ring.logger.timbre :as logger]
+            [madouc.handlers.content :as content]
+            [madouc.handlers.api :as api]
+            [compojure.core :refer :all]))
 
 
-(defn main-handler
-  [request]
-  (let [client (:remote-addr request)
-        msg (format "Hello, there %s!!!", client)]
-    {:status 200
-     :headers {"Content-Type" "text/plain"}
-     :body msg}))
+(def main-handler (routes api/handler content/handler))
 
 (def entrypoint (logger/wrap-with-logger main-handler))
