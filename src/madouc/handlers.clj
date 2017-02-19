@@ -6,5 +6,3 @@
 
 
 (def main-handler (routes api/handler content/handler))
-
-(def entrypoint (logger/wrap-with-logger main-handler))
