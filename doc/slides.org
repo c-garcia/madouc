@@ -20,6 +20,7 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 * Type checking
 * Easy concurrent programming
 * Railway oriented programming
+* REPL-based coding
 * Steps: minimal server
 
   - ability to start a server from REPL
@@ -29,9 +30,9 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 
 * Request logging
 
-  
+  - add ring logger and ring logger timbre
 
 * Routing
 
   - add compojure
-  - add ring defaults
+  - enable swagger
