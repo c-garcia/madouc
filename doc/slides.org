@@ -36,3 +36,9 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 
   - add compojure
   - enable swagger
+  - not needed to enable anti-forgery for APIs
+  - maybe x-requested-with
+
+* Development
+
+  - based on environ wrap-reload and wrap-stacktrace
