@@ -13,3 +13,25 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 * Why FP matters
 
   - Multi core
+* Simple complex
+* 100 abstractions
+* Nice things you can do with FP
+* Persistent data structures
+* Type checking
+* Easy concurrent programming
+* Railway oriented programming
+* Steps: minimal server
+
+  - ability to start a server from REPL
+  - logging via timbre
+  - environments
+  - add shutdown hook
+
+* Request logging
+
+  
+
+* Routing
+
+  - add compojure
+  - add ring defaults
