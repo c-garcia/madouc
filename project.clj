@@ -9,6 +9,8 @@
                  [ring-logger-timbre "0.7.5"]
                  [com.taoensso/timbre "4.8.0"]
                  [com.fzakaria/slf4j-timbre "0.3.4"]
+                 [compojure "1.5.2"]
+                 [metosin/compojure-api "1.1.10"]
                  [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]]
