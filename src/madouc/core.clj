@@ -5,7 +5,8 @@
             [ring.middleware.stacktrace :refer [wrap-stacktrace]]
             [madouc.handlers :as app]
             [environ.core :refer [env]]
-            [taoensso.timbre :as timbre])
+            [taoensso.timbre :as timbre]
+            [selmer.parser :refer [set-resource-path!]])
   (:gen-class))
 
 
@@ -35,5 +36,6 @@
   [& args]
   (.addShutdownHook (Runtime/getRuntime) (Thread. #(stop-server)))
   (timbre/info "Starting server...")
+  (set-resource-path! (clojure.java.io/resource "templates"))
   (let [ep (make-entrypoint app/main-handler)]
     (server/run ep)))
