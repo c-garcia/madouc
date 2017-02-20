@@ -14,7 +14,8 @@
                  [metosin/compojure-api "1.1.10"]
                  [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
-                  :exclusions [ch.qos.logback/logback-classic]]]
+                  :exclusions [ch.qos.logback/logback-classic]]
+                 [selmer "1.10.6"]]
   :main madouc.core
   :profiles {:dev {:plugins [[lein-environ "1.1.0"]]
                    :env {:madouc-env "dev"}}
