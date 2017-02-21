@@ -15,7 +15,8 @@
                  [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
-                 [selmer "1.10.6"]]
+                 [selmer "1.10.6"]
+                 [mount "0.1.11"]]
   :main madouc.core
   :profiles {:dev {:plugins [[lein-environ "1.1.0"]]
                    :env {:madouc-env "dev"}}
