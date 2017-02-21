@@ -12,12 +12,12 @@
                  [com.fzakaria/slf4j-timbre "0.3.4"]
                  [compojure "1.5.2"]
                  [metosin/compojure-api "1.1.10"]
-                 [environ "1.1.0"]
+                 [yogthos/config "0.8"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
                  [selmer "1.10.6"]
                  [mount "0.1.11"]]
   :main madouc.core
-  :profiles {:dev {:plugins [[lein-environ "1.1.0"]]
-                   :env {:madouc-env "dev"}}
+  :profiles {:dev {:resource-paths ["config/dev"]}
+             :prod {:resource-paths ["config/prod"]}
              :uberjar {:aot :all}})
