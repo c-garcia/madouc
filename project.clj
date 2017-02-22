@@ -14,15 +14,18 @@
                  [metosin/compojure-api "1.1.10"]
                  [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
-                  :exclusions [ch.qos.logback/logback-classic]]]
+                  :exclusions [ch.qos.logback/logback-classic]]
+                 [org.clojure/clojurescript  "1.9.227"]
+                 [reagent  "0.6.0-rc"]
+                 [re-frame "0.9.0"]]
 
-  :plugins [[lein-figwheel "0.5.0-6"]
-            [lein-cljsbuild "1.1.2" :exclusions [[org.clojure/clojure]]]]
+  :plugins [[lein-cljsbuild "1.1.3"]
+            [lein-figwheel  "0.5.4-7"]]
 
   :cljsbuild
   {:builds [ {:id "dev"
               :source-paths ["src/cljs"]
-              :figwheel true
+              :figwheel {:on-jsload madouc.core/run }
               :compiler {:main madouc.core
                          :asset-path "js/out"
                          :output-to "resources/public/js/app.js"
