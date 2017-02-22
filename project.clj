@@ -15,6 +15,19 @@
                  [environ "1.1.0"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]]
+
+  :plugins [[lein-figwheel "0.5.0-6"]
+            [lein-cljsbuild "1.1.2" :exclusions [[org.clojure/clojure]]]]
+
+  :cljsbuild
+  {:builds [ {:id "dev"
+              :source-paths ["src/cljs"]
+              :figwheel true
+              :compiler {:main madouc.core
+                         :asset-path "js/out"
+                         :output-to "resources/public/js/app.js"
+                         :output-dir "resources/public/js/out" }}]
+   }
   :main madouc.core
   :profiles {:dev {:plugins [[lein-environ "1.1.0"]]
                    :env {:madouc-env "dev"}}
