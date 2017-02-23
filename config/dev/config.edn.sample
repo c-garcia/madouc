@@ -1,4 +1,5 @@
 {:madouc-env "dev"
- :db-url "jdbc:mysql://..."
+ :db-host "localhost"
+ :db-name "..."
  :db-user "..."
  :db-password "..."}
