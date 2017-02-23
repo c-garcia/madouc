@@ -42,3 +42,9 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 * Development
 
   - based on environ wrap-reload and wrap-stacktrace
+  - immutant does not work with wrap-reload
+
+* Enable selmer templates
+
+  - set template path
+  - Use template inheritance

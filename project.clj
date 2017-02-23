@@ -12,12 +12,14 @@
                  [com.fzakaria/slf4j-timbre "0.3.4"]
                  [compojure "1.5.2"]
                  [metosin/compojure-api "1.1.10"]
-                 [environ "1.1.0"]
+                 [cprop "0.1.10"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
                  [org.clojure/clojurescript  "1.9.227"]
                  [reagent  "0.6.0-rc"]
-                 [re-frame "0.9.0"]]
+                 [re-frame "0.9.0"]
+                 [selmer "1.10.6"]
+                 [mount "0.1.11"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-figwheel  "0.5.4-7"]]
@@ -32,6 +34,6 @@
                          :output-dir "resources/public/js/out" }}]
    }
   :main madouc.core
-  :profiles {:dev {:plugins [[lein-environ "1.1.0"]]
-                   :env {:madouc-env "dev"}}
+  :profiles {:dev {:resource-paths ["config/dev"]}
+             :prod {:resource-paths ["config/prod"]}
              :uberjar {:aot :all}})
