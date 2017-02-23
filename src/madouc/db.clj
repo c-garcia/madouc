@@ -16,5 +16,7 @@
                            (env :db-user)
                            (env :db-password)))
   :stop (conman/disconnect! con))
+
+(conman/bind-connection con "sql/queries.sql")
   
 
