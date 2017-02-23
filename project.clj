@@ -18,7 +18,7 @@
                  [selmer "1.10.6"]
                  [mount "0.1.11"]
                  [conman "0.6.3"]
-                 [mysql/mysql-connector-java "5.1.40"]]
+                 [org.postgresql/postgresql "9.4.1212"]]
   :main madouc.core
   :profiles {:dev {:resource-paths ["config/dev"]}
              :prod {:resource-paths ["config/prod"]}
