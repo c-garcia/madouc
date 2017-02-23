@@ -16,7 +16,9 @@
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
                  [selmer "1.10.6"]
-                 [mount "0.1.11"]]
+                 [mount "0.1.11"]
+                 [conman "0.6.3"]
+                 [mysql/mysql-connector-java "5.1.40"]]
   :main madouc.core
   :profiles {:dev {:resource-paths ["config/dev"]}
              :prod {:resource-paths ["config/prod"]}
