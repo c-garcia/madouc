@@ -12,7 +12,7 @@
                  [com.fzakaria/slf4j-timbre "0.3.4"]
                  [compojure "1.5.2"]
                  [metosin/compojure-api "1.1.10"]
-                 [yogthos/config "0.8"]
+                 [cprop "0.1.10"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
                  [selmer "1.10.6"]
