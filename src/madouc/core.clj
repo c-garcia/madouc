@@ -3,11 +3,12 @@
             [immutant.web :as server]
             [ring.middleware.reload :refer [wrap-reload]]
             [ring.middleware.stacktrace :refer [wrap-stacktrace]]
-            [madouc.handlers :as app]
-            [environ.core :refer [env]]
             [taoensso.timbre :as timbre]
             [selmer.parser :refer [set-resource-path!]]
-            [mount.core :as mount :refer [defstate]])
+            [mount.core :as mount :refer [defstate]]
+            [cprop.core :refer [load-config]]
+            [madouc.handlers :as app]
+            [madouc.config :refer [env]])
   (:gen-class))
 
 
@@ -46,5 +47,6 @@
 (defn -main 
   [& args]
   (.addShutdownHook (Runtime/getRuntime) (Thread. #(mount/stop)))
+
   (set-resource-path! (clojure.java.io/resource "templates"))
   (mount/start))
