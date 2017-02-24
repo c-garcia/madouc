@@ -1,6 +1,7 @@
 (ns madouc.db
   (:require [mount.core :refer [defstate]]
-            [conman.core :as conman]
+            [hikari-cp.core :refer [make-datasource close-datasource]]
+            [hugsql.core :as hugsql]
             [madouc.config :refer [env]]))
 
 (defn- make-pool-spec
@@ -10,13 +11,12 @@
    :password pass})
 
 (defstate con
-  :start (conman/connect! (make-pool-spec
+  :start (make-datasource (make-pool-spec
                            (env :db-host)
                            (env :db-name)
                            (env :db-user)
                            (env :db-password)))
-  :stop (conman/disconnect! con))
+  :stop (close-datasource con))
 
-(conman/bind-connection con "sql/queries.sql")
   
 
