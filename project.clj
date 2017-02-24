@@ -17,7 +17,8 @@
                   :exclusions [ch.qos.logback/logback-classic]]
                  [selmer "1.10.6"]
                  [mount "0.1.11"]
-                 [conman "0.6.3"]
+                 [hikari-cp "1.7.5"]
+                 [com.layerware/hugsql "0.4.7"]
                  [org.postgresql/postgresql "9.4.1212"]]
   :main madouc.core
   :profiles {:dev {:resource-paths ["config/dev"]}
