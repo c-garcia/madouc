@@ -19,6 +19,7 @@
                  [mount "0.1.11"]
                  [hikari-cp "1.7.5"]
                  [com.layerware/hugsql "0.4.7"]
+                 [migratus "0.8.32"]
                  [org.postgresql/postgresql "9.4.1212"]]
   :main madouc.core
   :profiles {:dev {:resource-paths ["config/dev"]}
