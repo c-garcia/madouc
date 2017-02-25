@@ -9,13 +9,16 @@
 
 (def interval-id nil)
 
+(defn fetching? [id]
+  (not (nil? id)))
+
 (defn start-event-fetching []
   (when (nil? interval-id)
     (let [id (js/setInterval simulate-events-load 1000)]
-      (set! interval-id id))))
+      (fetching? (set! interval-id id)))))
 
 (defn stop-event-fetching []
   (when (not (nil? interval-id))
     (do
       (js/clearInterval interval-id)
-      (set! interval-id nil))))
+      (fetching? (set! interval-id nil)))))

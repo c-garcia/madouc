@@ -8,7 +8,6 @@
  :initialize
  (fn [db _]
    (.info js/console "Initialize handler")
-   (.info js/console "This is working, then")
    (assoc db :events [])
    (assoc db :fetching nil)))
 

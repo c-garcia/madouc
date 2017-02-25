@@ -9,26 +9,48 @@
   [:pre (with-out-str (pprint @re-frame.db/app-db))])
 
 (defn events-counter []
-  [:span @(rf/subscribe [:events-count])])
+  (let [cont @(rf/subscribe [:events-count])]
+    [:span.label.label-default (str cont " events")]))
 
 (defn event-detail [evt]
   ^{:key (:timestamp evt)}[:li.list-group-item (:message evt)])
 
 (defn events-list []
-  [:ul.list-group
-   (map event-detail @(rf/subscribe [:events-list]))])
+  [:div.panel.panel-default
+   [:div.panel-heading "Events"]
+   [:div.panel-body
+    [:ul.list-group
+     (map event-detail @(rf/subscribe [:events-list]))]]
+   [:div.panel-footer
+    [events-counter]]])
+
+(defn toggle-on []
+  [:div.toggle.btn.btn-primary {:on-click #(rf/dispatch [:start-fetching])
+                                :style {:width "172px"}}
+   [:div.toggle-group
+    [:label.btn.btn-primary.toggle-on "Start fetching events"]
+    [:label.btn.btn-default.active.toggle-off "Stop fetching events"]
+    [:span.toggle-handle.btn.btn-default]]])
+
+(defn toggle-off []
+  [:div.toggle.btn.btn-primary.off {:on-click #(rf/dispatch [:stop-fetching])
+                                    :style {:width "172px"}}
+   [:div.toggle-group
+    [:label.btn.btn-primary.toggle-on "Start fetching events"]
+    [:label.btn.btn-default.active.toggle-off "Stop fetching events"]
+    [:span.toggle-handle.btn.btn-default]]])
+
+(defn fetching-toggle []
+  (fn []
+    (let [fetching @(rf/subscribe [:fetching])
+          on (not fetching)]
+      (if on
+        [toggle-on]
+        [toggle-off]))))
 
 (defn ui []
   [:div.container-fluid
-   [:h1 "Events " [events-counter]]
-   [:h3 "Fetching? " @(rf/subscribe [:fetching])]
-   [:div
-    [:button.btn.btn-primary
-     {:on-click #(rf/dispatch [:simulate-event-load])}
-     "Load events"]
-    [:button.btn.btn-default
-     {:on-click #(rf/dispatch [:start-fetching])} "Start fetching"]
-    [:button.btn.btn-default
-     {:on-click #(rf/dispatch [:stop-fetching])} "End fetching"]]
+   [:h1 "Github Events"]
+   [fetching-toggle]
    [events-list]
    #_[state-inspector]])
