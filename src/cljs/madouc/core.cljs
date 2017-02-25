@@ -56,7 +56,3 @@
   (rf/dispatch-sync [:initialize])
   (reagent/render [ui]
                   (.getElementById js/document "app")))
-
-
-
-                                        ;(defonce do-timer (js/setInterval simulate-events-load 2000))
