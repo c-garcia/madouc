@@ -18,5 +18,8 @@
                            (env :db-password)))
   :stop (close-datasource con))
 
+(defn main-db
+  []
+  {:datasource con})
   
-
+(hugsql/def-db-fns "sql/queries.sql")
