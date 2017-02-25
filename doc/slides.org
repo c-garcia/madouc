@@ -48,3 +48,15 @@ mathematician. Imperative programming is like giving instructions to an idiot.
 
   - set template path
   - Use template inheritance
+* Enable mount
+* Enable config 
+
+  - environ far less powerful and config is better for twelve factors
+    with devel environments
+    - we can just have our configuration not commited
+
+* Enable conman
+
+  - It is hugsql with a conection pool
+  - And now, with config, we can store db configuration 
+    for different environments

@@ -1,6 +1,7 @@
 (ns madouc.handlers.api
   (:require [ring.util.http-response :as http-resp]
-            [compojure.api.sweet :refer :all]))
+            [compojure.api.sweet :refer :all]
+            [madouc.db :as db]))
 
 (defapi handler-old
   (context "/api" []

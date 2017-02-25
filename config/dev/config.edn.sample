@@ -1,1 +1,5 @@
-{:madouc-env "dev"}
+{:madouc-env "dev"
+ :db-host "localhost"
+ :db-name "..."
+ :db-user "..."
+ :db-password "..."}
