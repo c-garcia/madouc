@@ -2,6 +2,7 @@
   (:require [reagent.core :as reagent]
             [re-frame.core :as rf]
             [madouc.mock :as mm]
+            [madouc.api]
             [cljs.pprint :refer [pprint]]))
 
 (rf/reg-event-db
@@ -39,9 +40,6 @@
 (defn events-list []
   [:ul.list-group
    (map event-detail @(rf/subscribe [:events-list]))])
-
-(defn simulate-events-load []
-  (rf/dispatch-sync [:simulate-event-load]))
 
 (defn ui []
   [:div.container-fluid
