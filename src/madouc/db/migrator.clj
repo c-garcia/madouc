@@ -8,7 +8,7 @@
   {:store :database
    :migration-dir "migrations/"
    :db {:classname "org.postgresql.Driver"
-        :subprotocol "postgres"
+        :subprotocol "postgresql"
         :subname (format "//%s/%s" (:db-host config) (:db-name config))
         :user (:db-user config)
         :password (:db-password config)}})
