@@ -15,12 +15,28 @@
                  [cprop "0.1.10"]
                  [org.immutant/web "2.1.6"
                   :exclusions [ch.qos.logback/logback-classic]]
+                 [org.clojure/clojurescript  "1.9.227"]
+                 [reagent  "0.6.0-rc"]
+                 [re-frame "0.9.0"]
                  [selmer "1.10.6"]
                  [mount "0.1.11"]
                  [hikari-cp "1.7.5"]
                  [com.layerware/hugsql "0.4.7"]
                  [migratus "0.8.32"]
                  [org.postgresql/postgresql "9.4.1212"]]
+
+  :plugins [[lein-cljsbuild "1.1.3"]
+            [lein-figwheel  "0.5.4-7"]]
+
+  :cljsbuild
+  {:builds [ {:id "dev"
+              :source-paths ["src/cljs"]
+              :figwheel {:on-jsload madouc.core/run }
+              :compiler {:main madouc.core
+                         :asset-path "js/out"
+                         :output-to "resources/public/js/app.js"
+                         :output-dir "resources/public/js/out" }}]
+   }
   :main madouc.core
   :profiles {:dev {:resource-paths ["config/dev"]}
              :prod {:resource-paths ["config/prod"]}
