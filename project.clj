@@ -23,7 +23,11 @@
                  [hikari-cp "1.7.5"]
                  [com.layerware/hugsql "0.4.7"]
                  [migratus "0.8.32"]
-                 [org.postgresql/postgresql "9.4.1212"]]
+                 [org.postgresql/postgresql "9.4.1212"]
+                 [buddy/buddy-core "1.2.0"]
+                 [buddy/buddy-sign "1.4.0"]
+                 [buddy/buddy-auth "1.4.1"]
+                 [clj-time "0.13.0"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-figwheel  "0.5.4-7"]]

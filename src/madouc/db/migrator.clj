@@ -28,3 +28,8 @@
 (defn debug-config
   []
   (config->migratus-params env))
+
+(defn create!
+  [migration-name]
+  (migratus/create (config->migratus-params env) migration-name))
+  
