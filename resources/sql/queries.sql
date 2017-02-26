@@ -14,4 +14,10 @@ where username = :username and password = :password
 select * from users
 where username = :username
 
+-- :name save-user! :! :n
+-- :doc adds a user with :username :personal-name and :hashed-password
+
+insert into users (username, personal_name, password)
+values (:username, :personal-name, :hashed-password)
+
 
