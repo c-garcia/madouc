@@ -14,7 +14,7 @@
 (rf/reg-event-db
  :simulate-event-load
  (fn [db _]
-   (assoc db :events (mm/get-rand-list (int (* 10 (rand)))))))
+   (assoc db :events (mm/get-rand-list 20))))
 
 (rf/reg-event-db
  :start-fetching

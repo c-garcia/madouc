@@ -14,7 +14,7 @@
 
 (defn start-event-fetching []
   (when (nil? interval-id)
-    (let [id (js/setInterval simulate-events-load 1000)]
+    (let [id (js/setInterval simulate-events-load (* 20 1000))]
       (fetching? (set! interval-id id)))))
 
 (defn stop-event-fetching []

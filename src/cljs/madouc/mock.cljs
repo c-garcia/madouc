@@ -1441,4 +1441,4 @@
   [n]
   #_(map rand-event (range n))
   (clojure.walk/keywordize-keys 
-    (take n (random-sample 0.1 real-events))))
+    (take n (random-sample 0.5 real-events))))

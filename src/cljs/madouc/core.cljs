@@ -5,7 +5,7 @@
             [madouc.api :as api]
             [madouc.subs]
             [madouc.events]
-            [madouc.views :as views]))
+            [madouc.views.core :as views]))
 
 
 (defn ^:export run
