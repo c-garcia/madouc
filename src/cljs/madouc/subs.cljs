@@ -14,3 +14,7 @@
 (rf/reg-sub
  :fetching
  (fn [db _] (:fetching db)))
+
+(rf/reg-sub
+ :selected-event
+ (fn [db _] (:selected-event db)))
