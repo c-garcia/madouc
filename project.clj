@@ -28,7 +28,8 @@
                  [buddy/buddy-sign "1.4.0"]
                  [buddy/buddy-auth "1.4.1"]
                  [clj-time "0.13.0"]
-                 [clj-http "2.3.0"]]
+                 [clj-http "2.3.0"]
+                 [cheshire "5.7.0"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-figwheel  "0.5.4-7"]]
