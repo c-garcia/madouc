@@ -8,4 +8,10 @@ select * from users
 select count(*) from users
 where username = :username and password = :password
 
+-- :name find-user-by-username :? :1
+-- :doc finds a user with :username
+
+select * from users
+where username = :username
+
 
