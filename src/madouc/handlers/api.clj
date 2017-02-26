@@ -1,17 +1,22 @@
 (ns madouc.handlers.api
   (:require [ring.util.http-response :as http-resp]
-            [compojure.api.sweet :refer :all]
             [schema.core :as s]
+            [compojure.api.sweet :refer :all]
+            [compojure.api.meta :refer [restructure-param]]
+            [buddy.auth.backends :as backends]
+            [buddy.auth.middleware :refer [wrap-authentication]]
+            [taoensso.timbre :as log]
+            [mount.core :refer [defstate]]
+            [madouc.config :refer [env]]
             [madouc.db :as db]
-            [madouc.controllers :refer :all]))
-
-(defapi handler-old
-  (context "/api" []
-    (GET "/status" [] (http-resp/ok {:api-status "ok"}))))
+            [madouc.controllers :refer :all]
+            [madouc.middleware :refer [make-auth-middleware]]))
 
 (s/defschema LoginReq {:username String :password String})
 (s/defschema Token {:token String})
 (s/defschema APIError {:error String})
+(s/defschema UserInfo {:username String :personal_name String})
+
 
 (def handler
   (api
@@ -26,6 +31,9 @@
        :responses {401 {:schema APIError :description "Unauthorized"}}
        :return Token
        :body [req LoginReq]
-       (login-controller req)))))
-            
-   
+       (login-controller req))
+     (GET "/user" req
+       :middleware [[wrap-authentication (make-auth-middleware)]]
+       :responses {401 {:schema APIError :description "Unauthorized"}}
+       :return UserInfo
+       (user-controller req)))))
