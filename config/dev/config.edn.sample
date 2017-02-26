@@ -2,4 +2,5 @@
  :db-host "localhost"
  :db-name "..."
  :db-user "..."
- :db-password "..."}
+ :db-password "..."
+ :jwt-secret "..."}
