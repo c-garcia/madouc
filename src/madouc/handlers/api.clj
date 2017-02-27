@@ -10,12 +10,19 @@
             [madouc.config :refer [env]]
             [madouc.db :as db]
             [madouc.controllers :refer :all]
-            [madouc.middleware :refer [make-auth-middleware]]))
+            [madouc.middleware :refer [make-auth-middleware]])
+ (:import [org.joda.time DateTime]))
 
 (s/defschema LoginReq {:username String :password String})
 (s/defschema Token {:token String})
 (s/defschema APIError {:error String})
-(s/defschema UserInfo {:username String :personal_name String})
+(s/defschema UserInfo {:username String :personal_name String :authorized Boolean})
+(s/defschema EventInfo {:timestamp DateTime
+                        :message String
+                        :repo String
+                        :files [String]
+                        :author String})
+(s/defschema EventList [EventInfo])
 
 
 (def handler
@@ -36,4 +43,10 @@
        :middleware [[wrap-authentication (make-auth-middleware)]]
        :responses {401 {:schema APIError :description "Unauthorized"}}
        :return UserInfo
-       (user-controller req)))))
+       (user-controller req))
+     (GET "/events" req
+       :middleware [[wrap-authentication (make-auth-middleware)]]
+       :responses {401 {:schema APIError :description "Unauthorized"}
+                   404 {:schema APIError :description "User has no token"}}
+       :return EventList
+       (events-controller req)))))
