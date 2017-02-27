@@ -6,22 +6,19 @@
 
 (rf/reg-event-db
  :initialize
- (fn [db _]
-   (.info js/console "Initialize handler")
-   (assoc db :events [])
-   (assoc db :fetching nil)))
+ (fn [_ _]
+   (.info js/console "Initialize the db (ratom)")
+   {:events []
+    :fetching nil}))
 
 (rf/reg-event-db
- :simulate-event-load
- (fn [db _]
-   (assoc db :events (mm/get-rand-list 20))))
+ :events-changed
+ (fn [db [_ events]]
+   (.info js/console "Events changed")
+   (assoc db :events events)))
 
 (rf/reg-event-db
- :start-fetching
- (fn [db _]
-   (assoc db :fetching (api/start-event-fetching))))
-
-(rf/reg-event-db
- :stop-fetching
- (fn [db _]
-   (assoc db :fetching (api/stop-event-fetching))))
+ :fetching-changed
+ (fn [db [_ fetching]]
+   (.info js/console "Fetching changed")
+   (assoc db :fetching fetching)))
