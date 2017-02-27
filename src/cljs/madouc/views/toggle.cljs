@@ -1,9 +1,10 @@
 (ns madouc.views.toggle
   (:require
-   [re-frame.core :as rf]))
+   [re-frame.core :as rf]
+   [madouc.api :as api]))
 
 (defn toggle-on []
-  [:div.toggle.btn.btn-primary {:on-click #(rf/dispatch [:start-fetching])
+  [:div.toggle.btn.btn-primary {:on-click #(api/start-event-fetching)
                                 :style {:width "172px"}}
    [:div.toggle-group
     [:label.btn.btn-primary.toggle-on "Start fetching events"]
@@ -11,7 +12,7 @@
     [:span.toggle-handle.btn.btn-default]]])
 
 (defn toggle-off []
-  [:div.toggle.btn.btn-primary.off {:on-click #(rf/dispatch [:stop-fetching])
+  [:div.toggle.btn.btn-primary.off {:on-click #(api/stop-event-fetching)
                                     :style {:width "172px"}}
    [:div.toggle-group
     [:label.btn.btn-primary.toggle-on "Start fetching events"]
