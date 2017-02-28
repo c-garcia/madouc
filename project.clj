@@ -36,14 +36,14 @@
 
   :cljsbuild
   {:builds [{:id "dev"
-             :source-paths ["src/cljs"]
+             :source-paths ["src-cljs"]
              :figwheel {:on-jsload "madouc.core/main" }
              :compiler {:main madouc.core
                         :asset-path "js/out"
                         :output-to "resources/public/js/app.js"
                         :output-dir "resources/public/js/out" }}
             {:id "min"
-             :source-paths ["src/cljs"]
+             :source-paths ["src-cljs"]
              :compiler {:output-to "resources/public/js/app.js"
                         :main madouc.core
                         :optimizations :advanced
